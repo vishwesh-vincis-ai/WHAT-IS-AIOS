@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIOS Professional Consultation - Strategic Suite</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --brand-dark: #1A1A2E;
+            --brand-primary: #16213E;
+            --brand-accent: #E94560;
+            --brand-light: #F8FAFC;
+            --brand-mid: #E2E8F0;
+            --text-black: #000000;
+            --text-white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-black);
+            background-color: #cbd5e1;
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* --- STRICT CONTRAST ENGINE --- */
+        .page {
+            background: white;
+            width: 210mm;
+            min-height: 297mm;
+            padding: 25mm;
+            margin: 40px auto;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-sizing: border-box;
+            color: var(--text-black) !important;
+        }
+
+        /* Rule: Dark slides MUST have white text */
+        .page.dark-slide {
+            background-color: var(--brand-dark) !important;
+            color: var(--text-white) !important;
+        }
+        .page.dark-slide * {
+            color: inherit !important;
+        }
+
+        /* Rule: Specific dark elements on light pages */
+        .bg-brand-dark, .layer-header, .dark-box {
+            background-color: var(--brand-dark) !important;
+            color: var(--text-white) !important;
+        }
+        .bg-brand-dark *, .layer-header *, .dark-box * {
+            color: var(--text-white) !important;
+        }
+
+        /* Rule: White elements on light/dark pages */
+        .benefit-card, .bg-light-box, .callout:not(.dark-slide .callout) {
+            background-color: white !important;
+            color: var(--text-black) !important;
+            border: 1px solid var(--brand-mid);
+        }
+        .benefit-card *, .bg-light-box *, .callout * {
+            color: var(--text-black) !important;
+        }
+
+        /* Branding Overrides */
+        .text-accent { color: var(--brand-accent) !important; }
+        .tag-pill { 
+            background: var(--brand-accent) !important; 
+            color: white !important; 
+            padding: 3px 10px; 
+            border-radius: 4px; 
+            font-size: 8pt; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+        }
+
+        /* Printing & PDF Export */
+        @media print {
+            body { background: none; }
+            .page { 
+                margin: 0; 
+                box-shadow: none; 
+                page-break-after: always; 
+                width: 100%; 
+                min-height: 100vh;
+            }
+            .no-print { display: none !important; }
+        }
+
+        /* Layout Elements */
+        .accent-bar { height: 6px; background: var(--brand-accent); width: 80px; margin: 24px 0; }
+        h1 { font-weight: 700; font-size: 38pt; line-height: 1.1; margin: 0; }
+        h2 { font-weight: 700; font-size: 16pt; border-bottom: 3px solid var(--brand-accent); padding-bottom: 8px; margin-top: 10px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+        
+        .callout { border-left: 6px solid var(--brand-accent); padding: 24px; margin: 20px 0; font-size: 11pt; }
+        .page.dark-slide .callout { background-color: rgba(255,255,255,0.08); }
+
+        .layer-box { border-radius: 8px; overflow: hidden; margin-bottom: 24px; border: 1px solid var(--brand-dark); }
+        .page.dark-slide .layer-box { border-color: var(--brand-accent); }
+        .layer-header { padding: 12px 20px; font-weight: 700; font-size: 10pt; display: flex; justify-content: space-between; align-items: center; }
+        .layer-content { padding: 20px; font-size: 11pt; }
+
+        .footer { margin-top: auto; font-size: 8pt; border-top: 1px solid var(--brand-mid); padding-top: 15px; display: flex; justify-content: space-between; opacity: 0.6; }
+        
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        td, th { padding: 18px; border: 1px solid var(--brand-mid); vertical-align: top; text-align: left; }
+        .page.dark-slide td, .page.dark-slide th { border-color: rgba(255,255,255,0.15); }
+    </style>
+</head>
+<body class="pt-16">
+
+    <div id="document-canvas">
+        
+        <!-- PAGE 1: COVER -->
+        <div class="page dark-slide">
+            <div class="mt-40 relative">
+                <p class="text-brand-accent font-bold tracking-widest text-sm uppercase mb-6">AIOS — AI OPERATING SYSTEM FOR CLINICS</p>
+                <h1>What is AIOS?</h1>
+                <p class="text-2xl mt-4 font-light text-accent">Your Clinic's Intelligent Operating Layer</p>
+                <div class="accent-bar"></div>
+                <div class="text-slate-300 text-lg max-w-md mt-12 leading-relaxed opacity-80">A structured introduction to AIOS — what it is, how it works, and why clinics like yours are adopting it.</div>
+            </div>
+            <div class="mt-auto pb-12 grid grid-cols-2 border-t border-white/10 pt-8">
+                <div>
+                    <p class="text-slate-500 text-[10px] font-bold uppercase mb-2">Prepared For</p>
+                    <p class="font-semibold text-sm">Clinic Leadership & Administration</p>
+                </div>
+                <div class="text-right">
+                    <p class="text-slate-500 text-[10px] font-bold uppercase mb-2">Consultant</p>
+                    <p class="font-semibold text-sm">Vishweshwaran</p>
+                    <p class="text-slate-500 text-xs mt-1">20 April 2026</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE 2: THE CLINIC CHALLENGE -->
+        <div class="page dark-slide">
+            <h2>1. THE CLINIC CHALLENGE</h2>
+            <p class="mb-10 text-slate-300">The hidden costs of manual operations often outweigh the cost of the tools themselves.</p>
+            <div class="grid grid-cols-2 gap-6">
+                <div class="benefit-card p-6 rounded-lg">
+                    <h3 class="font-bold mb-2" style="color: #000000 !important;">Scheduling Chaos</h3>
+                    <p class="text-xs" style="color: gray !important;">Endless phone tag and manual data entry lead to significant revenue leakage every week.</p>
+                </div>
+                <div class="benefit-card p-6 rounded-lg">
+                    <h3 class="font-bold mb-2" style="color: #000000 !important;">Follow-up Abyss</h3>
+                    <p class="text-xs" style="color: gray !important;">Patients fall through the cracks because tracking requires too much manual effort and focus.</p>
+                </div>
+                <div class="benefit-card p-6 rounded-lg">
+                    <h3 class="font-bold mb-2" style="color: #000000 !important;">Scattered Data</h3>
+                    <p class="text-xs" style="color: gray !important;">Disconnected systems mean management has no "single view" of the overall clinic health.</p>
+                </div>
+                <div class="benefit-card p-6 rounded-lg">
+                    <h3 class="font-bold mb-2"style="color: #000000 !important;">Clinician Burnout</h3>
+                    <p class="text-xs" style="color: gray !important;">Clinicians often spend the majority of their day on calls, admin, and coordination — not patient care.</p>
+                </div>
+            </div>
+            <div class="callout mt-16">
+                <p class="text-lg italic font-light">"Most clinics attempt to solve these with <strong>more tools</strong>, which adds complexity. AIOS manages the <strong>intelligence</strong> between the tools."</p>
+            </div>
+            <div class="footer"><span>AIOS Consultation | Vishweshwaran</span><span>Page 2</span></div>
+        </div>
+
+        <!-- PAGE 3: WHAT IS AIOS -->
+        <div class="page">
+            <h2>2. WHAT IS AIOS?</h2>
+            <p class="text-xl leading-relaxed font-light mb-8">AIOS is the <strong>AI Operating System</strong> that manages your clinic's intelligence layer. It connects your existing tools into one cohesive brain.</p>
+            
+            <div class="grid grid-cols-1 gap-4">
+                <div class="callout">
+                    <h3 class="font-bold uppercase text-[10px] tracking-widest mb-3 text-accent">THE INTELLIGENCE LAYER</h3>
+                    <p class="text-sm">Standard software stores data; AIOS uses data. It creates a "System of Agency" where AI agents actively solve problems rather than just recording them.</p>
+                </div>
+                <div class="callout">
+                    <h3 class="font-bold uppercase text-[10px] tracking-widest mb-3 text-accent">THE OS ANALOGY</h3>
+                    <p class="text-sm">Just as Windows manages hardware, <strong>AIOS manages your clinic's intelligence</strong>. It ensures tools focus on patients, not manual logistics.</p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-3 gap-6 mt-10">
+                <div class="p-6 bg-brand-dark rounded-xl shadow-xl">
+                    <div class="font-bold mb-2 text-accent uppercase text-xs tracking-widest">Automates</div>
+                    <div class="text-xs leading-relaxed opacity-80">Removes repetitive manual tasks across your entire workflow.</div>
+                </div>
+                <div class="p-6 bg-brand-dark rounded-xl shadow-xl">
+                    <div class="font-bold mb-2 text-accent uppercase text-xs tracking-widest">Coordinates</div>
+                    <div class="text-xs leading-relaxed opacity-80">Ensures your CRM, communication, and meeting platforms work as one unified system.</div>
+                </div>
+                <div class="p-6 bg-brand-dark rounded-xl shadow-xl">
+                    <div class="font-bold mb-2 text-accent uppercase text-xs tracking-widest">Learns</div>
+                    <div class="text-xs leading-relaxed opacity-80">Optimizes operations based on daily real-world clinic data.</div>
+                </div>
+            </div>
+            <div class="footer"><span>AIOS Consultation | Vishweshwaran</span><span>Page 3</span></div>
+        </div>
+
+        <!-- PAGE 4: THE CYCLE -->
+        <div class="page">
+            <h2>3. HOW AIOS WORKS — THE CYCLE</h2>
+            <p class="mb-10 text-slate-500">AIOS operates in a continuous loop to keep your clinic optimized 24/7.</p>
+            <div class="space-y-10">
+                <div class="flex gap-8 items-start">
+                    <div class="bg-brand-dark text-white w-14 h-14 rounded flex items-center justify-center font-bold text-2xl border-b-4 border-brand-accent shrink-0">1</div>
+                    <div class="flex-grow">
+                        <h3 class="font-bold uppercase text-xs tracking-widest mb-1">It Listens</h3>
+                        <p class="text-sm leading-relaxed opacity-70">AIOS monitors patient arrivals on Zoom, WhatsApp queries, and CRM updates in real-time.</p>
+                    </div>
+                </div>
+                <div class="flex gap-8 items-start">
+                    <div class="bg-brand-dark text-white w-14 h-14 rounded flex items-center justify-center font-bold text-2xl border-b-4 border-brand-accent shrink-0">2</div>
+                    <div class="flex-grow">
+                        <h3 class="font-bold uppercase text-xs tracking-widest mb-1">It Thinks</h3>
+                        <p class="text-sm leading-relaxed opacity-70">It processes context, identifies delays, and decides the best action to keep the clinic moving.</p>
+                    </div>
+                </div>
+                <div class="flex gap-8 items-start">
+                    <div class="bg-brand-dark text-white w-14 h-14 rounded flex items-center justify-center font-bold text-2xl border-b-4 border-brand-accent shrink-0">3</div>
+                    <div class="flex-grow">
+                        <h3 class="font-bold uppercase text-xs tracking-widest mb-1">It Acts</h3>
+                        <p class="text-sm leading-relaxed opacity-70">Executes decisions: sends WhatsApp alerts, assigns breakout rooms, or logs patient records instantly.</p>
+                    </div>
+                </div>
+                <div class="flex gap-8 items-start">
+                    <div class="bg-brand-dark text-white w-14 h-14 rounded flex items-center justify-center font-bold text-2xl border-b-4 border-brand-accent shrink-0">4</div>
+                    <div class="flex-grow">
+                        <h3 class="font-bold uppercase text-xs tracking-widest mb-1">It Reports</h3>
+                        <p class="text-sm leading-relaxed opacity-70">Provides a daily briefing on performance metrics and success rates for management clarity.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer"><span>AIOS Consultation | Vishweshwaran</span><span>Page 4</span></div>
+        </div>
+
+        <!-- PAGE 5: BENEFITS -->
+        <div class="page dark-slide">
+            <h2>4. OPERATIONAL BENEFITS</h2>
+            <p class="mb-10 text-slate-300">Transforming administrative burden into scalable patient care.</p>
+            <table class="w-full">
+                <thead>
+                    <tr>
+                        <th class="text-brand-accent uppercase tracking-widest text-xs">Metric</th>
+                        <th class="text-white uppercase tracking-widest text-xs">AIOS Transformation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="font-bold text-brand-accent">Admin Recovery</td><td>50%+ reduction in manual entry. Reclaim up to 3 hours daily per staff member.</td></tr>
+                    <tr><td class="font-bold text-brand-accent">Patient Volume</td><td>Handle 80% more patient volume without increasing headcount or overhead.</td></tr>
+                    <tr><td class="font-bold text-brand-accent">Revenue Recovery</td><td>Reduce no-shows to <5% via multi-channel intelligent automated reminders.</td></tr>
+                    <tr><td class="font-bold text-brand-accent">Compliance</td><td>100% follow-up completion rate ensured by the persistent context layer.</td></tr>
+                </tbody>
+            </table>
+            <div class="mt-20 p-12 border-2 border-brand-accent rounded-2xl text-center shadow-2xl">
+                <p class="text-3xl font-light italic">"Tools solve tasks. AIOS solves the <strong>business model</strong>."</p>
+            </div>
+            <div class="footer"><span>AIOS Consultation | Vishweshwaran</span><span>Page 5</span></div>
+        </div>
+
+        <!-- PAGE 6: THE 5 LAYERS -->
+        <div class="page">
+            <h2>5. THE 5 LAYERS OF AIOS</h2>
+            <p class="mb-8 text-xs font-semibold text-slate-400 tracking-widest uppercase">The Architecture of Agency</p>
+            <div class="space-y-6">
+                <div class="layer-box">
+                    <div class="layer-header"><span>LAYER 1: CONTEXT OS</span><span class="tag-pill">THE ROOTS</span></div>
+                    <div class="layer-content">AI understands business roots. Learns unique workflows, staff expertise, and patient preferences.</div>
+                </div>
+                <div class="layer-box">
+                    <div class="layer-header"><span>LAYER 2: DATA OS</span><span class="tag-pill">THE PULSE</span></div>
+                    <div class="layer-content">Interprets live data daily, monitoring real-time flow and daily appointment changes across tools.</div>
+                </div>
+                <div class="layer-box">
+                    <div class="layer-header"><span>LAYER 3: INTELLIGENCE OS</span><span class="tag-pill">THE BRAIN</span></div>
+                    <div class="layer-content">Connects dots, analyzing patterns to identify bottlenecks and solve problems before they disrupt flow.</div>
+                </div>
+                <div class="layer-box">
+                    <div class="layer-header"><span>LAYER 4: AUTOMATE OS</span><span class="tag-pill">THE HANDS</span></div>
+                    <div class="layer-content">Executes improvisation, handling manual tasks smoothly without staff input, maintaining admin flow.</div>
+                </div>
+                <div class="layer-box">
+                    <div class="layer-header"><span>LAYER 5: BUILD OS</span><span class="tag-pill">THE GROWTH</span></div>
+                    <div class="layer-content">Providing reports, content insights, and strategic suggestions to scale the business across channels and markets.</div>
+                </div>
+            </div>
+            <div class="footer"><span>AIOS Consultation | Vishweshwaran</span><span>Page 6</span></div>
+        </div>
+
+        <!-- PAGE 7: DIFFERENTIATION -->
+        <div class="page">
+            <h2>6. WHY AIOS IS DIFFERENT</h2>
+            <div class="grid grid-cols-2 gap-10 mt-12">
+                <div class="p-10 border-2 border-slate-200 rounded-2xl bg-slate-50 flex flex-col">
+                    <div class="tag-pill bg-slate-500 mb-8 self-start">CRMs (RECORD)</div>
+                    <p class="text-sm font-bold mb-6 uppercase tracking-wider">Passive Storage</p>
+                    <ul class="text-xs space-y-6 flex-grow list-none p-0">
+                        <li>• Wait for manual staff input.</li>
+                        <li>• Linear If-This-Then-That logic only.</li>
+                        <li>• Siloed data requires multiple tabs.</li>
+                        <li>• No inherent reasoning capability.</li>
+                    </ul>
+                </div>
+                <div class="dark-box p-10 rounded-2xl border-2 border-brand-accent shadow-2xl flex flex-col">
+                    <div class="tag-pill mb-8 self-start">AIOS (AGENCY)</div>
+                    <p class="text-sm font-bold mb-6 uppercase tracking-wider">Proactive Agency</p>
+                    <ul class="text-xs space-y-6 flex-grow list-none p-0 opacity-80">
+                        <li>• Understands intent like a manager.</li>
+                        <li>• Unified brain operating across all apps.</li>
+                        <li>• Auto-resolves schedule conflicts.</li>
+                        <li>• Reasons based on long-term context.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="callout mt-12 bg-slate-50 border-l-brand-dark text-black text-center font-bold italic text-lg">"CRMs remember the past. AIOS executes the future."</div>
+            <div class="footer"><span>AIOS Consultation | Vishweshwaran</span><span>Page 7</span></div>
+        </div>
+
+        <!-- PAGE 8: NEXT STEPS -->
+        <div class="page dark-slide">
+            <h2>7. WHAT'S NEXT</h2>
+            <div class="mt-16 text-center max-w-2xl mx-auto">
+                <div class="p-10 bg-white/5 rounded-2xl border-2 border-brand-accent shadow-2xl">
+                    <div class="text-brand-accent text-xs font-bold uppercase mb-6 tracking-widest">ACTION ITEM</div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Schedule Meeting for Implementation Plan</h3>
+                    <p class="text-base opacity-70 mb-8 leading-relaxed">Confirm the next session to finalize the AIOS blueprint and begin technical onboarding for your specific clinic needs.</p>
+                </div>
+            </div>
+            <div class="mt-16 text-center max-w-2xl mx-auto">
+                <div class="p-10 bg-white/5 rounded-2xl border-2 border-brand-accent shadow-2xl">
+                    <div class="text-brand-accent text-xs font-bold uppercase mb-6 tracking-widest">ACCORDING TO TIMELINE</div>
+                    <h3 class="text-2xl font-bold text-white mb-4">PDF of ' AIOS around your clinic '</h3>
+                    <p class="text-base opacity-70 mb-8 leading-relaxed">Soon , I will send you the 'AIOS around your clinic' Pdf .</p>
+                </div>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4" style="text-align: center; padding-top: 70px;">THANK YOU !!</h3>
+
+            <div class="mt-auto p-12 bg-white/5 text-white rounded-3xl border border-white/10 text-center font-light opacity-60 italic">"Less admin. More healing."</div>
+            <div class="footer"><span>AIOS Consultation | Vishweshwaran</span><span>Page 8</span></div>
+        </div>
+
+    </div>
+    
+    <script>
+        async function downloadAsPDF() {
+            const btn = document.getElementById('download-btn');
+            const btnText = document.getElementById('btn-text');
+            const element = document.getElementById('document-canvas');
+            
+            // UI Feedback
+            btn.disabled = true;
+            btnText.innerText = "Generating PDF...";
+            btn.classList.add('opacity-70');
+
+            // Configure PDF options
+            const opt = {
+                margin: [0, 0, 0, 0],
+                filename: 'AIOS-Consultation-Suite.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { 
+                    scale: 2, 
+                    useCORS: true, 
+                    letterRendering: true,
+                    backgroundColor: "#cbd5e1" // Match body background
+                },
+                jsPDF: { 
+                    unit: 'mm', 
+                    format: 'a4', 
+                    orientation: 'portrait' 
+                },
+                pagebreak: { mode: 'css', after: '.page' }
+            };
+
+            try {
+                // Generate and download directly
+                await html2pdf().set(opt).from(element).save();
+            } catch (error) {
+                console.error("PDF Generation failed", error);
+                btnText.innerText = "Error - Try Again";
+            } finally {
+                // Restore UI
+                btn.disabled = false;
+                btnText.innerText = "Download as PDF";
+                btn.classList.remove('opacity-70');
+            }
+        }
+    </script>
+
+
+</body>
+</html>
